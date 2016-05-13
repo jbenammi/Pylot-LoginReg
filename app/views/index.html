@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Jonathan Ben-Ammi">
+	<title></title>
+	<meta name="description" content="">
+	<link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/materialize_icons.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+	<script src="/static/js/jquery-2.2.3.js"></script>
+	<script src="/static/js/jquery-ui.js"></script>
+	<script src="/static/js/materialize.js"></script>
+	<script type="text/javascript" src=""></script>
+</head>
+<body>
+	<nav>
+		<div class="nav-wrapper blue-grey">
+			<div class="nav-wrapper container">
+				<p id="logo-container" class="brand-logo left">CodingDojo</p>
+			</div>	
+		</div>
+	</nav>
+	<br>
+	<br>
+	<div class="container">
+		<div class="row">	
+			<div class="col s6">
+				{% with errors = get_flashed_messages()%}
+				{% if errors[0] %}
+				<p class="red-text">{{errors[0]['passmatch']}}</p>
+				{% endif %}
+				{% if errors[0] %}
+				<p class="red-text">{{errors[0]['notreg']}}</p>
+				{% endif %}	
+				<form action="/login" method="post">
+					<div class="input-row">
+						{% if errors[0] %}
+						<p class="red-text">{{errors[0]['email2']}}</p>
+						{% endif %}
+						<label>E-Mail</label>
+						<input type="email" name="email" />
+					</div>
+					<div class="input-row">
+						{% if errors[0] %}
+						<p class="red-text">{{errors[0]['password2']}}</p>
+						{% endif %}
+						<label>Password</label>
+						<input type="password" name="password" />
+					</div>
+					<div class="input-row">
+						<button class="btn waves-effect waves-light blue-grey lighten-1" type="sumbit">Login</button>
+					</div>
+				</form>
+				{% if 'registered' in session %}
+				<div>
+				<p>{{session['registered']}}</p>
+				</div>
+				{% endif %}
+			</div>
+			<div class="col s6">
+
+				{% if errors[0] %}
+				<p class="red-text">{{errors[0]['user_registered']}}</p>
+				{% endif %}
+				<form action="/register" method="post">
+					<div class="input-row">
+						{% if errors[0] %}
+						<p class="red-text">{{errors[0]['fname']}}</p>
+						{% endif %}
+						<label>First Name</label>
+						<input type="text" name="fname" />
+					</div>
+					<div class="input-row">
+						{% if errors[0] %}
+						<p class="red-text">{{errors[0]['lname']}}</p>
+						{% endif %}
+						<label>Last Name</label>
+						<input type="text" name="lname" />
+					</div>
+					<div class="input-row">
+						{% if errors[0] %}
+						<p class="red-text">{{errors[0]['email']}}</p>
+						{% endif %}
+						<label>E-Mail</label>
+						<input type="email" name="email" />
+					</div>
+					<div class="input-row">
+						{% if errors[0] %}
+						<p class="red-text">{{errors[0]['password']}}</p>
+						{% endif %}
+						<label>Password</label>
+						<input type="password" name="password" />
+					</div>
+					<div class="input-row">
+						{% if errors[0] %}
+						<p class="red-text">{{errors[0]['confirmpass']}}</p>
+						{% endif %}
+						<label>Confirm Password</label>
+						<input type="password" name="confirmpass" />
+					</div>
+					<div class="input-row">
+						<button class="btn waves-effect waves-light blue-grey lighten-1" type="sumbit">Register</button>
+					</div>
+				</form>
+				{% endwith %}
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Jonathan Ben-Ammi">
+	<title>WELCOME!</title>
+	<meta name="description" content="This is a coding dojo assignment">
+	<link rel="stylesheet" type="text/css" href="/static/css/materialize.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/materialize_icons.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+	<script src="/static/js/jquery-2.2.3.js"></script>
+	<script src="/static/js/jquery-ui.js"></script>
+	<script src="/static/js/materialize.js"></script>
+	<script type="text/javascript" src=""></script>
+</head>
+<body>
+	<nav>
+		<div class="nav-wrapper blue-grey">
+			<div class="nav-wrapper container">
+				<p id="logo-container" class="brand-logo left">CodingDojo</p>
+	            <ul class="right hide-on-med-and-down">
+	                <li><a href="#">Welcome {{session['logged_info']['first_name']}}</a></li>
+	                <li><a href="/logout">Logout</a></li>
+	            </ul>
+			</div>
+		</div>
+	</nav>
+	<br>
+	<br>
+	<div class="container">
+		<h3>Welcome {{session['logged_info']['first_name']}}</h3>
+	</div>
+</body>
+</html>
